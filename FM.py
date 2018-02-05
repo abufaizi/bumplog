@@ -13,12 +13,15 @@ import os
 def get_all(nfile):
     #Returns all values in data file,
     with open(nfile + '.txt', 'r') as f:
-        return f.readlines()
+        objects = f.readlines()
+        for i in range(0, len(objects)):
+            objects[i] = objects[i][:-1]
+        return objects
 
 def get_substring(nfile, index):
     with open(nfile + '.txt', 'r') as f:
         content = f.readlines()
-        return content[index]
+        return content[index][:-1]
 
 def get_index(nfile, substring):
     with open(nfile + '.txt', 'r') as f:
@@ -42,23 +45,31 @@ def edit_substring(nfile, index, substring):
 
 # New
 
-# def delete_substring():
-#     with open(nfile + '.txt', 'r') as rf:
-
 
 def change_directory(ndirectory):
     os.chdir(ndirectory)
+
+def list_all():
+    names = []
+    for name in os.listdir('.'):
+        names.append(name)
+    return names
 
 def list_directories():
     #With respect to current directory, returns
     #a list of all subdirectories
     directories = []
-    for name in os.listdir("."):
+    for name in os.listdir('.'):
         if os.path.isdir(name):
             directories.append(name)
-    return
+    return directories
 
-
+def list_files():
+    files = []
+    for name in os.listdir('.'):
+        if os.path.isfile(name):
+            files.append(name)
+    return files
 
 def index_length(nfile):
    with open(nfile + '.txt', 'r') as f:
