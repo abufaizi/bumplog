@@ -3,6 +3,7 @@
 #    Reads and writes data to the data folder
 
 import FM
+import datetime
 
 # Gather data paths at position
 def gather_paths(position):

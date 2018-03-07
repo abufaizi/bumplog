@@ -7,3 +7,4 @@ The more higher level your functions, the more forgivable the parameters should 
 Record the time taken to create a note, from 20% of the note to 100%
 You can have people confirming prices at grocery stores and getting paid to put that information on an app
 You can create a product to autonomously detect prices at a grocery store and send it to the grocery store app
+exampletext

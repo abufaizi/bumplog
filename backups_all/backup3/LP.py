@@ -41,10 +41,10 @@ def hor_info(x, max_wdth):
 # --------------------------------- #
 
 def choosewrt_weight(logs_all, weight_all):
-    rand_num = random.randint(0, weight_all)
+    rand_num = random.uniform(0, weight_all)
     num = 0
     for i in range(0, len(logs_all)):
-        num += logs_all[i][1]
+        num += weight_conv(logs_all[i][1])
         if num > rand_num:
             return i - 1
     return len(logs_all) - 1

@@ -1,0 +1,10 @@
+I will not delete notes manually, I will have to create a method to delete notes.
+Bumplog should work symbiotically with the human brain and it's natural methods of storing and retrieving experiences and thoughts
+This is an example note
+Natural selection for your recorded thoughts
+Place a bar beside the 'highlighted' log
+kkklkkkkjlkj;lkj;lkj;l j;lkj lkjl; j;lkj ;lkj ;lj ;lkj lkj ;lkj l;kj l;j;lkj
+
+Take into consideration the last time a log was seen as well as the last time a log was bumped. Determine the strength based on these variables.
+This is an example text
+new_log
