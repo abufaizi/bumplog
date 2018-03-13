@@ -87,50 +87,7 @@ def main(win):
 			continue
 		'''
 		# NEW STABLE
-		UI.clear_screen(win)
-		#'''
-		info_dict = {}
-		info_dict['x'] = x
-		if highlight >= 0:
-			info_dict['bump_count'] = logs_chsn[highlight][2]
-			info_dict['position'] = DM.log_position(position, logs_chsn[highlight][1])
-		else:
-			info_dict['none_selected'] = True
-		UI.print_info(info_dict, x, win)
-		#'''
-		#print_header(win, position, name, x)
-		UI.new_line(win)
-		for i in range(0, int(y_left/2)):
-			UI.new_line(win)
-			y_left -= 1
-		for i in range(0, log_end):
-			is_highlighted = False
-			if i == highlight:
-				is_highlighted = True
-			# print_center(highlighted, section, bump, switch, p_wdth, p_mrgn, x, win)
-			UI.print_center(is_highlighted, logs_chsn[i][0], logs_chsn[i][2], True, p_wdth, p_mrgn, x, win)
-			UI.new_line(win)
-			for c in range(0, spacing_btwn):
-				UI.new_line(win)
-		for i in range(0, y_left):
-			UI.new_line(win)
-		if len(log_alrt) > 0:
-			UI.print_divider(win, x)
-			UI.print_center(False, log_alrt, 10, True, p_wdth, p_mrgn, x, win)
-			UI.new_line(win)
-		UI.print_divider(win, x)
-		UI.new_line(win)
-		'''if len(log_typd.split()) > 0:
-			if log_typd.split()[0][0] == '-':
-				print_left(True, log_typd, 5, p_wdth, p_mrgn, x, win)
-		else:
-			print_left(False, log_typd, 5, p_wdth, p_mrgn, x, win)'''
-		# print_left(highlighted, section, bump, p_wdth, p_mrgn, x, win):
-		UI.print_left(False, log_typd, 5, p_wdth, p_mrgn, x, win)
-		if highlight > -1:
-			pass
-		else:
-			UI.print_cursor(win)
+		UI.print_screen(position, logs_chsn, log_end, log_typd, log_alrt, spacing_btwn, highlight, y_left, p_wdth, p_mrgn, x, win)
 
 		# Only returns if it gets some form of keyboard input
 		key = IM.get_input(win)
