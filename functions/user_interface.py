@@ -4,63 +4,13 @@
 
 
 # Local Modules
-## NONE
+import logical_procedures as LP
+import data_manager as DM
 
 # NonLocal Modules
 import subprocess
 import curses
-import logical_procedures as LP
-import data_manager as DM
 
-
-## This file should handle all logic for printing to the screen.
-#  At the moment, review.py is burdened by the following variables:
-#  x, y_left, wdth, mrgn, logs_chsn, log_end, and spacing_btwn
-def print_screen(position, logs_chsn, log_end, log_typd, log_alrt, spacing_btwn, highlight, y_left, wdth, mrgn, x, win):
-	clear_screen(win)
-	#'''
-	info_dict = {}
-	info_dict['x'] = x
-	if highlight >= 0:
-		info_dict['bump_count'] = logs_chsn[highlight][2]
-		info_dict['position'] = DM.log_position(position, logs_chsn[highlight][1])
-	else:
-		info_dict['none_selected'] = True
-	print_info(info_dict, x, win)
-	#'''
-	#print_header(win, position, name, x)
-	new_line(win)
-	for i in range(0, int(y_left/2)):
-		new_line(win)
-		y_left -= 1
-	for i in range(0, log_end):
-		is_highlighted = False
-		if i == highlight:
-			is_highlighted = True
-		# print_center(highlighted, section, bump, switch, wdth, mrgn, x, win)
-		print_center(is_highlighted, logs_chsn[i][0], logs_chsn[i][2], True, wdth, mrgn, x, win)
-		new_line(win)
-		for c in range(0, spacing_btwn):
-			new_line(win)
-	for i in range(0, y_left):
-		new_line(win)
-	if len(log_alrt) > 0:
-		print_divider(win, x)
-		print_center(False, log_alrt, 10, True, wdth, mrgn, x, win)
-		new_line(win)
-	print_divider(win, x)
-	new_line(win)
-	'''if len(log_typd.split()) > 0:
-		if log_typd.split()[0][0] == '-':
-			print_left(True, log_typd, 5, wdth, mrgn, x, win)
-	else:
-		print_left(False, log_typd, 5, wdth, mrgn, x, win)'''
-	# print_left(highlighted, section, bump, wdth, mrgn, x, win):
-	print_left(False, log_typd, 5, wdth, mrgn, x, win)
-	if highlight > -1:
-		pass
-	else:
-		print_cursor(win)
 
 
 # --------------------------------------------------------------- #

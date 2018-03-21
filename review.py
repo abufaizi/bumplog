@@ -4,6 +4,8 @@
 
 
 # Local Modules
+import sys
+sys.path.insert(0, 'functions')
 import data_manager as DM
 import logical_procedures as LP
 import user_interface as UI
@@ -21,8 +23,6 @@ def main(win):
 	# Gather all logs and bumps with respect to position
 	file_paths, log_paths = DM.gather_paths(position)
 	logs_all = DM.gather_logs(file_paths, log_paths)
-
-
 
 	# Chosen Logs
 	logs_chsn = []
@@ -76,16 +76,8 @@ def main(win):
 			highlight = -1
 
 		# Clear and print each part of the terminal screen
-		# OLD
-		'''UI.print_screen(win, x, y_left, logs_chsn, log_end, log_typd, log_alrt, spacing_btwn, highlight, position)'''
-		# NEW ATTEMPT
-		'''
-		try:
-			UI.print_screen(position, logs_chsn, log_end, log_typd, log_alrt, spacing_btwn, highlight, y_left, p_wdth, p_mrgn, x, win)
-		except curses.ERR:
-			UI.clear_screen(win)
-			continue
-		'''
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
+
 		# NEW STABLE
 		UI.clear_screen(win)
 		#'''
@@ -131,6 +123,8 @@ def main(win):
 			pass
 		else:
 			UI.print_cursor(win)
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
 
 		# Only returns if it gets some form of keyboard input
 		key = IM.get_input(win)
